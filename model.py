@@ -2,6 +2,9 @@ import tensorflow as tf
 import numpy as np
 import cv2
 
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
 def versions():
 	print("tensorflow version", tf.__version__)
 	print("numpy version", np.__version__)
