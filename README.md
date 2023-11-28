@@ -1,9 +1,16 @@
 # Welcome to ML model loader
 
 ## Getting started
+### For backend
+- `cd` into backend folder
 - Need pipenv to install packages
 - Create a folder called `.venv` in the root folder
 - Once installed pipenv, run `pipenv install`, this should install the needed packages into the environment folder
+
+### For frontend
+- `cd` into frontend folder
+- `npm install` to install dependancies
+- `npm start` to start the frontend, ensure backend is running as well
 
 ### Needed packages that will be installed
 - tensorflow: version 2.15.0
