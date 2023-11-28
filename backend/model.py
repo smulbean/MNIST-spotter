@@ -50,7 +50,3 @@ def run_model(img_dir):
 	res_arr = model.predict(np.asarray([img_arr]))
 	res = np.argmax(res_arr)
 	return res
-
-
-result = run_model("image.png")
-print(result)
