@@ -62,6 +62,7 @@ const DrawingCanvas = () => {
     contextRef.current.fill();
   }
 
+
 	const predict = async () => {
     console.log("button pressed!")
 		const imageURL = canvasRef.current.toDataURL();

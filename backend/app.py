@@ -27,10 +27,9 @@ def predict():
     image_file.save(image_path)
 
     # Run the model on the saved image
-    # result = run_model(image_path)
+    result = run_model(image_path)
     # Convert int64 to regular Python integer
-    # result = int(result)
-    result = 1
+    result = int(result)
 
     # Return the result as JSON
     return jsonify({'result': result})
