@@ -13,6 +13,7 @@ const UploadImage = () => {
       const reader = new FileReader();
       reader.onloadend = () => {
         setSelectedImage(file);
+        console.log(file);
         setImage(reader.result);
         localStorage.setItem('selectedImage', reader.result);
       };

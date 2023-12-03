@@ -29,8 +29,9 @@ IMG_DIR = "image.png"
 def run_model(img_dir):
 	# convert image to numpy array
 	img = cv2.imread(img_dir, cv2.IMREAD_GRAYSCALE) # read img as black and white
-	img_res = cv2.resize(img, dsize=(28, 28), interpolation=cv2.INTER_CUBIC) # make image 28x28
-	img_arr = np.array(img_res) # convert img to array
+	img = cv2.bitwise_not(img) # swap black and white
+	img = cv2.resize(img, dsize=(28, 28), interpolation=cv2.INTER_CUBIC) # make image 28x28
+	img_arr = np.array(img) # convert img to array
 
 
 	# if you want to view what img_res looks like:

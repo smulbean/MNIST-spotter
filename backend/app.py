@@ -14,11 +14,10 @@ def display_versions():
 # Define a new endpoint for running the model
 @app.route('/predict', methods=['POST'])
 def predict():
-    print(request)
-    print(request.files)
     # Check if an image file is present in the request
     if 'image' not in request.files:
         return jsonify({'error': 'No image provided'})
+
 
     # Get the file from the request
     image_file = request.files['image']
@@ -28,9 +27,10 @@ def predict():
     image_file.save(image_path)
 
     # Run the model on the saved image
-    result = run_model(image_path)
+    # result = run_model(image_path)
     # Convert int64 to regular Python integer
-    result = int(result)
+    # result = int(result)
+    result = 1
 
     # Return the result as JSON
     return jsonify({'result': result})
