@@ -6,13 +6,13 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 # Display library versions at the root endpoint
-@app.route('/')
+@app.route('/api')
 def display_versions():
     versions()
     return "Library versions displayed in console."
 
 # Define a new endpoint for running the model
-@app.route('/predict', methods=['POST'])
+@app.route('/api/predict', methods=['POST'])
 def predict():
     # Check if an image file is present in the request
     if 'image' not in request.files:
