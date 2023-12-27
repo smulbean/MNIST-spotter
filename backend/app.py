@@ -21,6 +21,7 @@ def predict():
 
     # Get the file from the request
     image_file = request.files['image']
+    print(image_file)
 
     # Save the file to a temporary location
     image_path = "temp_image.png"
@@ -30,6 +31,7 @@ def predict():
     result = run_model(image_path)
     # Convert int64 to regular Python integer
     result = int(result)
+    print(result)
 
     # Return the result as JSON
     return jsonify({'result': result})

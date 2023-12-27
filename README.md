@@ -5,7 +5,7 @@
 - `cd` into backend folder
 - Need pipenv to install packages
 - Create a folder called `.venv` in the root folder
-- Once installed pipenv, run `pipenv install`, this should install the needed packages into the environment folder
+- Once installed pipenv, run `python -m pipenv install`, this should install the needed packages into the environment folder
 
 ### For frontend
 - `cd` into frontend folder
@@ -20,7 +20,7 @@
 - python version: 3.10.7
 
 ## Run the server
-- `flask run`, this will run the flask server on your locals, and you can use the route `/predict` using POST method to run the model
+- `python -m flask run`, this will run the flask server on your locals, and you can use the route `/predict` using POST method to run the model
 
 ### How to test the route?
 - Download postman

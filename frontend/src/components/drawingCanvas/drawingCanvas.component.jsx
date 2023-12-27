@@ -8,7 +8,6 @@ const DrawingCanvas = () => {
   const contextRef = useRef(null)
   const [isDrawing, setIsDrawing] = useState(false)
 	const [response, setResponse] = useState(null)
-	const [drawnImage, setDrawnImage] = useState(null)
   
   const borderThickness = 1;
   const canvas2Window = 0.5;
@@ -66,29 +65,22 @@ const DrawingCanvas = () => {
 	const predict = async () => {
     console.log("button pressed!")
 		const imageURL = canvasRef.current.toDataURL();
-    // console.log(imageURL)
-    setDrawnImage(await toImageFile(imageURL, "image.png"));
-
-    console.log("got image!")
-    
-
-    const storedImage = drawnImage;
-    // console.log(storedImage)
+    const storedImage = await toImageFile(imageURL, "image.png");
 
     if (storedImage) {
-      console.log("post req started!")
+      console.log("get req started!")
       const formData = new FormData();
       formData.append('image', storedImage);
 
       const apiUrl = 'http://127.0.0.1:5000/predict';
       // console.log(formData);
       try {
-        const response = await axios.post(apiUrl, formData, {
+        const res = await axios.post(apiUrl, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
         });
-        setResponse(response.data.result);
+        setResponse(res.data.result);
         // Handle the response as needed
       } catch (error) {
         console.error('Error uploading image:', error);
@@ -99,12 +91,13 @@ const DrawingCanvas = () => {
     }
   };
 
-  const toImageFile = (url, fileName) => {
-    return fetch(url)
-      .then(response => response.blob())
+  const toImageFile = async(url, fileName) => {
+    const ret = await fetch(url)
+      .then(res => res.blob())
       .then(blob => new File([blob], fileName, {
         type: "image/png"
       }))
+    return ret;
   }
 
   return (
