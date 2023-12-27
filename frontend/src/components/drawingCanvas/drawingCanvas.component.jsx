@@ -1,5 +1,4 @@
 import { useRef, useEffect, useState } from 'react';
-import ReImg from '../../reimg/reimg.js';
 import axios from 'axios';
 
 const DrawingCanvas = () => {
@@ -72,7 +71,7 @@ const DrawingCanvas = () => {
       const formData = new FormData();
       formData.append('image', storedImage);
 
-      const apiUrl = `${API_URL}/predict`;
+      const apiUrl = "http://127.0.0.1:5000/api/predict";
       // console.log(formData);
       try {
         const res = await axios.post(apiUrl, formData, {

@@ -33,9 +33,9 @@ def run_model(img_dir):
 	img_arr = np.array(img) # convert img to array
 	
 	# if you want to view what img_res looks like:
-	cv2.imshow("win-name", img)
-	cv2.waitKey(0)
-	cv2.destroyAllWindows()
+	# cv2.imshow("win-name", img)
+	# cv2.waitKey(0)
+	# cv2.destroyAllWindows()
 
 
 	# change each pixel in range [0,255] to range [0, 1]. Note that 0=black, 1=white.
