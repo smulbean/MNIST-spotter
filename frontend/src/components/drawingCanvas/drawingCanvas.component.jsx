@@ -1,5 +1,4 @@
 import { useRef, useEffect, useState } from 'react';
-import ReImg from '../../reimg/reimg.js';
 import axios from 'axios';
 
 const DrawingCanvas = () => {
