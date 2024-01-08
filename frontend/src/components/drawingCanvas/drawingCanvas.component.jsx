@@ -71,7 +71,7 @@ const DrawingCanvas = () => {
       const formData = new FormData();
       formData.append('image', storedImage);
 
-      const apiUrl = "http://127.0.0.1:5000/api/predict";
+      const apiUrl = "https://ml-model-loader-git-removing-tf-douglasichens-projects.vercel.app/api/predict";
       // console.log(formData);
       try {
         const res = await axios.post(apiUrl, formData, {
