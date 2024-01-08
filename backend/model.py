@@ -1,14 +1,14 @@
-import tensorflow as tf
+# import tensorflow as tf
 import numpy as np
 import cv2
 
 import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+# os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
-def versions():
-	print("tensorflow version", tf.__version__)
-	print("numpy version", np.__version__)
-	print("cv2 version", cv2.__version__)
+# def versions():
+# 	print("tensorflow version", tf.__version__)
+# 	print("numpy version", np.__version__)
+# 	print("cv2 version", cv2.__version__)
 
 # dataset
 # mnist = tf.keras.datasets.mnist
@@ -18,7 +18,7 @@ def versions():
 # x_train, x_test = x_train / 255.0, x_test / 255.
 
 # load model
-model = tf.keras.models.load_model("model.h5")
+# model = tf.keras.models.load_model("model.h5")
 
 # testing model accuracy
 # model.evaluate(x_test, y_test, verbose=2)
@@ -45,7 +45,8 @@ def run_model(img_dir):
 		for col in range(size):
 			img_arr[row][col] /= 255
 
+	return 2
 	# run the model
-	res_arr = model.predict(np.asarray([img_arr]))
-	res = np.argmax(res_arr)
-	return res
+	# res_arr = model.predict(np.asarray([img_arr]))
+	# res = np.argmax(res_arr)
+	# return res
