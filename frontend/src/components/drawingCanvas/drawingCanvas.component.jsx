@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import axios from 'axios';
+import * as tf from "@tensorflow/tfjs"
 
 const DrawingCanvas = () => {
 
@@ -62,46 +63,12 @@ const DrawingCanvas = () => {
 
 
 	const predict = async () => {
-		
-
-    // console.log("button pressed!")
-	// const imageURL = canvasRef.current.toDataURL();
-    // const storedImage = await toImageFile(imageURL, "image.png");
-
-    // if (storedImage) {
-    //   console.log("get req started!")
-    //   const formData = new FormData();
-    //   formData.append('image', storedImage);
-
-	//   setResponse(1);
-
-    //   const apiUrl = `${URL}/api/predict`;
-      // console.log(formData);
-    //   try {
-    //     const res = await axios.post(apiUrl, formData, {
-    //       headers: {
-    //         'Content-Type': 'multipart/form-data',
-    //       },
-    //     });
-    //     setResponse(res.data.result);
-    //     // Handle the response as needed
-    //   } catch (error) {
-    //     console.error('Error uploading image:', error);
-    //     // Handle errors
-    //   }
-    // } else {
-    //   console.error('No image selected for upload.');
-    // }
-  };
-
-  const toImageFile = async(url, fileName) => {
-    const ret = await fetch(url)
-      .then(res => res.blob())
-      .then(blob => new File([blob], fileName, {
-        type: "image/png"
-      }))
-    return ret;
-  }
+		const context = contextRef.current;
+		const canvas = canvasRef.current;
+		const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+		const imageTensor = tf.browser.fromPixels(imageData, 1);
+		console.log(imageTensor)
+  	};
 
   return (
     <div>
