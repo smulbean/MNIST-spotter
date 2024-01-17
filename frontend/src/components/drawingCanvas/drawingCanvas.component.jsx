@@ -62,32 +62,36 @@ const DrawingCanvas = () => {
 
 
 	const predict = async () => {
-    console.log("button pressed!")
-		const imageURL = canvasRef.current.toDataURL();
-    const storedImage = await toImageFile(imageURL, "image.png");
+		
 
-    if (storedImage) {
-      console.log("get req started!")
-      const formData = new FormData();
-      formData.append('image', storedImage);
+    // console.log("button pressed!")
+	// const imageURL = canvasRef.current.toDataURL();
+    // const storedImage = await toImageFile(imageURL, "image.png");
 
-      const apiUrl = "https://ml-model-loader-git-removing-tf-douglasichens-projects.vercel.app/api/predict";
+    // if (storedImage) {
+    //   console.log("get req started!")
+    //   const formData = new FormData();
+    //   formData.append('image', storedImage);
+
+	//   setResponse(1);
+
+    //   const apiUrl = `${URL}/api/predict`;
       // console.log(formData);
-      try {
-        const res = await axios.post(apiUrl, formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        });
-        setResponse(res.data.result);
-        // Handle the response as needed
-      } catch (error) {
-        console.error('Error uploading image:', error);
-        // Handle errors
-      }
-    } else {
-      console.error('No image selected for upload.');
-    }
+    //   try {
+    //     const res = await axios.post(apiUrl, formData, {
+    //       headers: {
+    //         'Content-Type': 'multipart/form-data',
+    //       },
+    //     });
+    //     setResponse(res.data.result);
+    //     // Handle the response as needed
+    //   } catch (error) {
+    //     console.error('Error uploading image:', error);
+    //     // Handle errors
+    //   }
+    // } else {
+    //   console.error('No image selected for upload.');
+    // }
   };
 
   const toImageFile = async(url, fileName) => {
