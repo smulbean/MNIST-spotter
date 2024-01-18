@@ -8,6 +8,7 @@ const DrawingCanvas = () => {
   const contextRef = useRef(null)
   const [isDrawing, setIsDrawing] = useState(false)
 	const [response, setResponse] = useState(null)
+	const [model, setModel] = useState(null)
   
   const borderThickness = 1;
   const canvas2Window = 0.5;
@@ -30,6 +31,9 @@ const DrawingCanvas = () => {
     context.fillStyle = "white";
     context.fill();
     contextRef.current = context;
+
+	// set model
+	const myModel = tf.load
   }, [])
   const startDrawing = ({nativeEvent}) => {
     const {offsetX, offsetY} = nativeEvent;
@@ -66,8 +70,26 @@ const DrawingCanvas = () => {
 		const context = contextRef.current;
 		const canvas = canvasRef.current;
 		const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-		const imageTensor = tf.browser.fromPixels(imageData, 1);
-		console.log(imageTensor)
+		
+		// gray scale + resize
+		var imageTensor = tf.browser.fromPixels(imageData, 3);
+		imageTensor = tf.image.resizeBilinear(imageTensor, [28, 28]);
+		imageTensor = tf.image.rgbToGrayscale(imageTensor);
+		// imageTensor.print()
+
+		// set to: 1 - a/255 (0-1 domain and inversion)
+		var buffer = tf.buffer(imageTensor.shape, imageTensor.dtype, imageTensor.dataSync());
+		var newBuffer = tf.buffer([28, 28], imageTensor.dtype)
+		for (let y=0; y<28; y++) {
+			for (let x=0; x<28; x++) {
+				newBuffer.set(1-buffer.get(y, x, 0)/255.0, y, x);
+			}
+		}
+		imageTensor = newBuffer.toTensor();
+		// imageTensor.print();
+
+		// feed into network
+		var res = 
   	};
 
   return (
