@@ -6,7 +6,7 @@ import DrawingCanvas from './components/drawingCanvas/drawingCanvas.component';
 function App() {
   return (
     <div className="App">
-      <h1>React App</h1>
+      <h1 class="title" >React App</h1>
       {/* <UploadImage /> */}
       <DrawingCanvas />
     </div>
