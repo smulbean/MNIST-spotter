@@ -130,7 +130,6 @@ const DrawingCanvas = () => {
 					
 			</div>
 			<br></br>
-			<br></br>
 			<div>
 				<button class="button-clear" role="button" type="submit" text-align="center" onClick={clearCanvas}>Clear</button>
 				<button class="button-predict" role="button" type="submit" text-align="center" onClick={predict}>Predict</button>

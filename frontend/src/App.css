@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background: #333;
 }
 
 .App-logo {
@@ -37,6 +38,13 @@
   }
 }
 
+.App p{
+  color: #fff;
+  margin: 15px 0 10px 0;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
 .title {
   font-size: 70px;
   font-weight: 600;
@@ -44,4 +52,38 @@
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  justify-content: flex-end;
+  align-items: flex-end;
+  min-height: 100vh;
+
+}
+
+.footer {
+  background-color: #3c3c3c;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.footer p {
+  color: #fff;
+  margin: 15px 0 10px 0;
+  font-size: 1rem;
+  font-weight: 300;
 }

@@ -6,9 +6,16 @@ import DrawingCanvas from './components/drawingCanvas/drawingCanvas.component';
 function App() {
   return (
     <div className="App">
-      <h1 class="title" >React App</h1>
+      <br></br>
+      <h1 class="title" >MNIST Spotter</h1>
+      <br></br>
       {/* <UploadImage /> */}
       <DrawingCanvas />
+      <br></br>
+      <br></br>
+      <footer class="footer">
+        <p> &copy;2023 All Rights Reserved</p>
+       </footer>
     </div>
   )
 }
