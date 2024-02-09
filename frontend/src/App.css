@@ -89,27 +89,26 @@ body {
 }
 
 .glowing-cards{
-  min-height:50vh;
+  min-height:100vh;
   padding: 2em;
   display:flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 1.5em;
-  overflow: hidden;
 }
+
 .glowing-cards::before{
   content:"";
   position: absolute;
   width: 100%;
-  height: 100%;
   top: 0;
 }
 
 .glowing-cards .card{
   position: relative;
   width: 50;
-  height: 23em;
+  height: calc(100%-2px);
   color: #fff;
   border-radius: 13px;
   background: radial-gradient(
@@ -146,7 +145,7 @@ body {
 
 .glowing-cards:hover .card {
   background: radial-gradient(
-    15000px circle at var(--x) var (--y),
+    1500px circle at var(--x) var (--y),
     rgba(0, 162, 255, 0.9),
     transparent 16%
   )
