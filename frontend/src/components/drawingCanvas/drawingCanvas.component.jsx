@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import axios from 'axios';
 import * as tf from "@tensorflow/tfjs"
 
+import "./canva.css";
 
 // set model
 const modelURL = `${process.env.REACT_APP_URL}/converted/model/model.json`;
@@ -119,7 +120,7 @@ const DrawingCanvas = () => {
   return (
     <div>
 			<div>
-				<canvas
+				<canvas class="canva"
 					id="DrawingCanvas"
 					onMouseDown={startDrawing}
 					onMouseUp={finishDrawing}
@@ -128,14 +129,13 @@ const DrawingCanvas = () => {
 				/>
 					
 			</div>
+			<br></br>
 			<div>
-				<button type="submit" text-align="center" onClick={clearCanvas}>Clear</button>
+				<button class="button-clear" role="button" type="submit" text-align="center" onClick={clearCanvas}>Clear</button>
+				<button class="button-predict" role="button" type="submit" text-align="center" onClick={predict}>Predict</button>
 			</div>
 			<div>
-				<button type="submit" text-align="center" onClick={predict}>Predict</button>
-			</div>
-			<div>
-				<h1 id="PredictText">Prediction: {response}</h1>
+				<h1 class="prediction" id="PredictText">Prediction: {response}</h1>
 			</div>
     </div>
     
